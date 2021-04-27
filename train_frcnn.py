@@ -325,7 +325,7 @@ def image_training(curr_config, class_mapping, model_all, model_rpn, model_class
                 continue
 
     print('Training complete, exiting.')
-rm -rf .git
+
 
 def main():
     """
@@ -338,7 +338,7 @@ def main():
                                                                                                  train_imgs,
                                                                                                  curr_config)
 
-    # image_training(curr_config, class_mapping, model_all, model_rpn, model_classifier, data_gen_train)
+    image_training(curr_config, class_mapping, model_all, model_rpn, model_classifier, data_gen_train)
 
     train_process_graph(curr_config.train_process_data_file)
 
