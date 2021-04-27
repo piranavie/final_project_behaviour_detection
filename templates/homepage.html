@@ -1,0 +1,42 @@
+{# Menu buttons for live streaming detection and upload video detection webpages.#}
+{% extends 'base.html' %}
+{% block body %}
+
+<!--Menu Bar-->
+<div class="displayTopleft container xlarge">
+    <p><button class="menuBut" onclick="openPage('liveCamera', this, '#c2c2cb')" id="tab0">live Camera</button></p>
+    <p><button class="menuBut" onclick="openPage('recordFootage', this, '#c2c2cb')" id="tab1">Upload Footage</button></p>
+</div>
+
+<!-- live Camera Modal -->
+<div id="liveCamera" class="menuPage">
+    {% include 'includes/liveFootage.html' %}
+</div>
+
+<!-- upload file Modal -->
+<div id="recordFootage" class="menuPage">
+    {% include 'includes/uploadFootage.html' %}
+</div>
+
+<script>
+    function openPage(pageName,elmnt,color) {
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("menuPage");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+        }
+        tablinks = document.getElementsByClassName("menuBut");
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].style.backgroundColor = "";
+        }
+        document.getElementById(pageName).style.display = "block";
+        elmnt.style.backgroundColor = color;
+    }
+    // Get the element with id="defaultOpen" and click on it
+    document.getElementById("{{ TAB_NO }}").click();
+
+</script>
+
+
+{% endblock %}
+

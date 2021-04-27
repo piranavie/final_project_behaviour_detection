@@ -1,0 +1,25 @@
+{#Homepage containning the title of the project and a short description of what the project is.#}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>CCTV Camera</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{{ url_for ('static', filename='css/styles.css') }}">
+
+    </head>
+    <body>
+        <div class="bgimg displayContainer textWhite">
+            <div class="displayMiddle jumbo">
+                <p class="title">An Autonomous Surveillance System That Detects Whether A Person Is A Suspect Or Not</p>
+                <p class = "description"> This security video systems (CCTV) to determine whether a person is a suspect
+                    or not from their action (such as crimes or illegal activities: robbery, abuse, arson, etc) in
+                    surveillance at real-time. This will be one way to help reduce crimes, the costs of labour,
+                    capture the areas that human eyes couldn’t and less dependence on the human factor.</p>
+            </div>
+            {% block body %}{% endblock %}
+        </div>
+        <script src="../static/js/main.js"></script>
+    </body>
+</html>

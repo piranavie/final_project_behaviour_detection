@@ -1,0 +1,13 @@
+h5py
+Keras==2.4.3
+numpy~=1.19.5
+opencv-python~=4.5.1.48
+sklearn~=0.0
+
+tensorflow~=2.4.1
+scikit-learn~=0.24.1
+matplotlib~=3.4.0
+pandas~=1.2.3
+tqdm~=4.59.0
+Flask~=1.1.2
+Werkzeug~=1.0.1

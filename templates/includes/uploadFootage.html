@@ -1,0 +1,79 @@
+{#Uploading the video page.
+Resulting the detection in video and displaying the plotted graph#}
+
+<div class="content animateZoom">
+    <div class="container black">
+        <span onclick="document.getElementById('recordFootage').style.display='none'" class="closeButton displayTopright large">x</span>
+        <h1>Import Record Footage</h1>
+    </div>
+    <div id="drop-area">
+        <form class="my-form" id="form_id" action="/uploadFootage" method="POST" enctype="multipart/form-data">
+            <p style="color: black" >Drop a file.</p>
+            <input name="file" type="file" id="fileElem" onchange="handleFiles(this.files)" oninput="filesize(this);">
+            <label class="button" for="fileElem">Choose</label>
+        </form>
+        <div id="gallery" />
+    </div>
+</div>
+
+<div class="container black">
+    <h1>Result</h1>
+</div>
+
+<h5><b style="color: black">{{MESSAGE["message"]}}</b></h5>
+
+<div class="tab">
+    <button class="menuBut" onclick="switcTab('videoResult')">Video Result</button>
+    <button class="menuBut" onclick="switcTab('Ground_Truth_Info')">Ground Truth Info</button>
+    <button class="menuBut" onclick="switcTab('mAP')">mAP</button>
+    <button class="menuBut" onclick="switcTab('Precision')">Precision</button>
+    <p/>
+    <p/>
+    <button class="menuBut" onclick="switcTab('Predicted_Objects_Info')">Predicted Objects Info</button>
+    <button class="menuBut" onclick="switcTab('Recall')">Recall</button>
+</div>
+
+<div style="height: 550px" class="tabcontent" id="videoResult">
+    <h5 style="color: black">Video Result:</h5>
+    <video width="400" height="400" controls>
+        <source src={{ url_for ('static', filename='assets/video/result.mp4') }} type="video/mp4" />
+    </video>
+    <br/>
+</div>
+
+
+<div class="tabcontent" id="Ground_Truth_Info" style="height: 550px;display: none">
+    <img src={{ url_for ('static', filename='assets/graph/Ground-Truth_Info.png') }} style="width:550px" />
+</div>
+
+<div class="tabcontent" id="mAP" style="height: 550px;display: none">
+    <img src={{ url_for ('static', filename='assets/graph/mAP.png') }} style="width:550px" />
+</div>
+
+<div class="tabcontent" id="Precision" style="height: 550px;display: none">
+    <img src={{ url_for ('static', filename='assets/graph/Precision.png') }} style="width:550px" />
+</div>
+
+<div class="tabcontent" id="Predicted_Objects_Info" style="height: 550px;display: none">
+    <img src={{ url_for ('static', filename='assets/graph/Predicted_Objects_Info.png') }} style="width:550px" />
+</div>
+
+<div class="tabcontent" id="Recall" style="height: 550px;display: none">
+    <img src={{ url_for ('static', filename='assets/graph/Recall.png') }} style="width:550px" />
+</div>
+
+
+<script>
+    function switcTab(tab) {
+        var i;
+        var x = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < x.length; i++) {
+            x[i].style.display = "none";
+        }
+        document.getElementById(tab).style.display = "block";
+    }
+
+    function filesize(elem){
+        document.cookie = `filesize=${elem.files[0].size}`
+    }
+</script>

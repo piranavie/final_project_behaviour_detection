@@ -1,0 +1,81 @@
+{#Live streaming detection page.
+Resulting detection on the live streaming frame.#}
+
+<div class="content animateZoom">
+    <div class="container black displayContainer">
+        <span onclick="document.getElementById('liveCamera').style.display='none';stopCamera()" class="closeButton displayTopright large">x</span>
+        <h1>live Camera detection</h1>
+    </div>
+    <div class="container" >
+        <br/>
+        <button id="start" name='start' value="true" class="menuBut" onclick="startCamera();">Start WebCam</button>
+        <button id="stop" name='stop' value="true" class="menuBut" onclick="stopCamera();">Stop WebCam</button>
+        <div class="container" style="height: 550px">
+            <br/>
+            <br/>
+            <img id="videoElement" src="" style="height: 400px"/>
+        </div>
+    </div>
+
+    <div>
+        <script>
+            let myTimer;
+            let myTimerSpeed = 3000 // 3 sec
+            let baseURL = 'http://127.0.0.1:5000'
+            function stopCamera() {
+                clearInterval(myTimer)
+                let data = JSON.stringify({"operation": 'stop'})
+                callPostApi(baseURL + '/cameraOperation',  data)
+            }
+
+            function startCamera() {
+                let data = JSON.stringify({"operation": 'start'})
+                let result = callPostApi(baseURL + '/cameraOperation',  data)
+
+                if (result) {
+                    startUpdateImage(baseURL + '/video_feed', "videoElement", myTimerSpeed)
+                }
+            }
+
+            function startUpdateImage(url, imgElementId, delay) {
+                myTimer = setInterval(function () {
+                    fetchUpdateImage(url, imgElementId);
+                }, delay)
+            }
+
+            async function fetchUpdateImage(url, imgElementId) {
+                await fetch(url)
+                    .then(response => response.blob())
+                    .then(images => {
+                        console.log(url);
+                        console.log(images);
+                        let outside = URL.createObjectURL(images)
+                        let imgId = document.getElementById(imgElementId);
+                        imgId.setAttribute("src", outside)
+                    })
+                    .catch(function (error) {
+                        console.log(url + ' Request failed for update image', error);
+                    });
+            }
+            async function callPostApi(url, data) {
+                await fetch(url, {
+                    method: 'POST',
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json'
+                    },
+                    body: data,
+                })
+                    .then(function (response) {
+                        if (!response.ok) {
+                            throw Error(response.statusText)
+                        }
+                        return true
+                    })
+                    .catch(function (error) {
+                        console.log(url + ' Request failed for POST API', error);
+                    });
+            }
+        </script>
+    </div>
+</div>
