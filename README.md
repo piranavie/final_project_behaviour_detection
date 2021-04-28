@@ -1,15 +1,14 @@
 # An Autonomous Surveillance System That Detects Whether A Person Is A Suspect Or Not
 
-This project allows determining whether a person is a suspect or not from their action (such as crimes or illegal 
-activities: robbery, abuse, arson, etc) in surveillance at real-time. This will be one way to help reduce crimes, 
-the costs of labour, capture the areas that human eyes couldn’t and less dependence on the human factor. To detect 
-their behaviour, the Faster R-CNN deep learning algorithm, and VGG16 for an image pre-trained image classification is 
-used.
+Creating a real-time detection system to automatically detect whether a person is a suspect or not from their actions 
+provided in the footage. This is done by determining whether a person behaviour is similar to crimes or illegal 
+activities like robbery, abuse, arson, etc. The Faster R-CNN deep learning algorithm and VGG16 for an image pre-trained 
+image classification are used to detect their behaviour.
 
 ![image](readme_imgs/homepage.png)
 
 ## Launch the website:
-### video uploading detection
+###video uploading detection
 Once they upload a video, it starts the detection process by handling video upload on the local server using POST
 method in the flask as a server-end point. Then, it will extract the input video into one frame per second, which will
 be stored in a test image folder. These image frames will be used to process the testing using Faster R-CNN on
@@ -17,7 +16,7 @@ VGG 16 network (Faster R-CNN on VGG 16 network.
 After the Detection process is done, displaying the detected results as a video output. Also, displaying graph results 
 such as ground truth classes, predicted classes, mAP, Precision and Recall calculations.
 
-### live-streaming detection
+###live-streaming detection
 The live detection done by getting an image frame for every 3 seconds from backend end-point services
 (from flask API via call HTTP API (using AJAX in a browser). These image frames will be used to process the testing
 using Faster R-CNN on VGG 16 network.
@@ -32,7 +31,7 @@ is found.
 
 * Install all the packages from the `requirements.txt` to run this project.
 
-* Test videos are found in the `test_videos` folder in `data` folder.
+* Test videos are found in the `test_videos` folder in the `data` folder.
 
 * The dataset for Training contains 6 different anomalies data such as Arson, Assault, Burglary, Fighting, Shooting 
   and Shoplifting. The total training video is 34 and producing a total of 28382 video frames. Each selected anomaly 
@@ -86,12 +85,12 @@ is found.
     ```
   
 * `format_dataset.py` is used to convert training videos in the 'train_videos' folder into image frames. These image 
-frames will be stored in the 'train_images' folder. If there are no image frames in 'train_videos' folder, simply do:
+frames will be stored in the 'train_images' folder. If there are NO image frames in 'train_videos' folder, simply do:
     ```bash
       python format_dataset.py
     ```
 
-* If there is no training has been done, or no `model_frcnn.hdf5` and `config.pickle` are found in the `data` folder,
+* If there is NO training has been done, or no `model_frcnn.hdf5` and `config.pickle` are found in the `data` folder,
   then the `train_frcnn.py` can be used to train a model. To train, simply do: 
   ```bash
     python train_frcnn.py
