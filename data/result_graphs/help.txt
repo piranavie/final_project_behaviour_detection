@@ -1,0 +1,5 @@
+Store the graph files(.png) here, when running the following image training and detection processes.
+1. Training process - 'train_frcnn.py'
+2. Detection process via the terminal - 'test_frcnn.py'
+
+**The program will automatically stores the graph results in this folder.**

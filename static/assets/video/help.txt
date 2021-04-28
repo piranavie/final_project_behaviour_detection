@@ -1,0 +1,5 @@
+Store the video file(result.mp4) here, when run the image detection process via web browser.
+
+These files will override for each video uploading via web browser.
+
+**The program will generate result video under this folder.**

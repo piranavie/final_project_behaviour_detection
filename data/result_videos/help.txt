@@ -1,0 +1,4 @@
+Store the detected results video file(.mp4) here, when running the detection process(test_frcnn.py)
+in the terminal.
+
+**The program will automatically stores the detected results video in this folder.**

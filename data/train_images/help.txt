@@ -1,0 +1,6 @@
+Store all image frames(.jpg) here, when you run 'format_dataset.py'.
+
+This process create necessary image frames from 'Train' videos by using pre-defined entry in the annotation file(
+Temporal_Anomaly_Annotation.txt)
+
+**The program will generate extracted image frames from the train videos, and stores them under this folder.**

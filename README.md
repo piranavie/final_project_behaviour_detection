@@ -38,6 +38,14 @@ the user that there is a suspicious person is found.
 
 * The CCTV footage dataset are collected from `https://www.crcv.ucf.edu/projects/real-world/`.
 
+* `Temporal_Anomaly_Annotation.txt` is used extract those selected videos into frames by getting the starting and ending
+  frames of instance and discarding all the negative number. The negative number means no anomalous event has occurred. 
+  For example,
+- if Assault028_x264.mp4, Assault, 165, 240, -1, -1 The third column is the starting frame of the event, and the fourth 
+  column is the ending frame of the event. The negative number column will be discarding it.
+- if Assault048_x264.mp4, Assault, 15, 75, 100, 250 The third and fifth column is the starting frame of the event and 
+  the fourth and sixth column is the ending frame of the event.
+
 * `config.py` is used to control and change the parameters of the model for training and testing according to their
     needs. This file is found in the fast_rcnn folder.
 
@@ -54,10 +62,9 @@ the user that there is a suspicious person is found.
 * `data` folder contains:
   - `result_graphs` folder - storing graph results such as ground truth classes, predicted classes, mAP, Precision 
   and Recall calculations. 
-  - `result_videos` folder - storing the detected results video. 
-  - `result_images` folder - the detected results are stored in images. This will be converted into video.
-  - `test_videos` folder - storing all videos that can be used for testing. Also, these videos are stored from 
-    the uploaded video in the website.
+  - `result_videos` folder - storing the detected results video.
+  - `test_videos` folder - storing all videos that can be used for testing. Also, test videos are stored when the user
+     uploads the video in the website.
   - `train_images` folder - storing extracted image frames from the train videos.
   - `train_videos` folder - storing the train videos.
   - `annotate.csv` file - new annotation file is created by containing the information of each image frame in a format of:

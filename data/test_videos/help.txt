@@ -1,0 +1,6 @@
+You can the store the test video(s)("mp4", "mov" or "avi") here. It can be used when run the detected process
+(test_frcnn.py) from terminal.
+
+Also, test videos are stored when the user uploads the video in the website.
+
+The test videos can be downloaded from `https://www.crcv.ucf.edu/projects/real-world/`.

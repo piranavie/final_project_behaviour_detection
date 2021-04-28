@@ -1,0 +1,23 @@
+***** Before you insert them, please remove below lines. *****
+
+The annotation file can be downloaded from `https://www.crcv.ucf.edu/projects/real-world/`.
+
+Text_formate
+
+ Each row of 'Temporal_Anomaly_Annotation.txt' is the annotation for a video, for example:
+Abuse028_x264.mp4  Abuse  165  240  -1 -1
+-	The first column is the name of the video
+-	The second column is the name of the anomalous event
+-	The third column is the starting frame of the event (you will have to convert each video to image frames first)
+-	The fourth column is the ending frame of the event.
+-	For videos in which second  instance of event occurs, fifth and sixth contains starting and ending frames of second instance.  Negative number (-1) means no anomalous event instance. In this example, only one instance of “abuse” is in this video.
+Another example:
+Arson011_x264.mp4  Arson  150  420  680  1267
+-	In this example, there are two instances of anomalous event “arson”. The first instance starts at frame# 150 and ends at frame#420. The second instance is from frame 680 (start) to frame 1267 (end).
+
+Normal_Videos_003_x264.mp4  Normal  -1  -1  -1  -1
+-	Normal videos do not contain any anomalous event, therefore have (-1) everywhere.
+Note: Ours videos have 30 frames per second.
+
+
+***** Before you insert them, please remove below lines. *****

@@ -1,0 +1,10 @@
+Store the following graph files(.png) here, when run the image detection process via web browser.
+1. Ground-Truth_Info.png
+2. mAP.png
+3. Precision.png
+4. Predicted_Objects_Info.png
+5. Recall.png
+
+These files will override for each video uploading via web browser.
+
+**The program will generate result graphs under this folder.**
