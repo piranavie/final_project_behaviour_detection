@@ -41,9 +41,9 @@ the user that there is a suspicious person is found.
 * `Temporal_Anomaly_Annotation.txt` is used extract those selected videos into frames by getting the starting and ending
   frames of instance and discarding all the negative number. The negative number means no anomalous event has occurred. 
   For example,
-- if Assault028_x264.mp4, Assault, 165, 240, -1, -1 The third column is the starting frame of the event, and the fourth 
+    - if Assault028_x264.mp4, Assault, 165, 240, -1, -1 The third column is the starting frame of the event, and the fourth 
   column is the ending frame of the event. The negative number column will be discarding it.
-- if Assault048_x264.mp4, Assault, 15, 75, 100, 250 The third and fifth column is the starting frame of the event and 
+    - if Assault048_x264.mp4, Assault, 15, 75, 100, 250 The third and fifth column is the starting frame of the event and 
   the fourth and sixth column is the ending frame of the event.
 
 * `config.py` is used to control and change the parameters of the model for training and testing according to their
