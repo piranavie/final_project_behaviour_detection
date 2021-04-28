@@ -106,3 +106,13 @@ images:
 
 ## Built With
 * Python -  support up to python 3.8.0.
+
+## Contributing
+* [piranavie](https://github.com/piranavie)
+
+## Authors
+* [piranavie](https://github.com/piranavie)
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
