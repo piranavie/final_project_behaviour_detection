@@ -8,7 +8,7 @@ image classification are used to detect their behaviour.
 ![image](readme_imgs/homepage.png)
 
 ## Launch the website:
-###video uploading detection
+### video uploading detection
 The recorded footage detection by loading the website and then clicking on the upload video option. This will open the 
 uploaded video webpage for the user to upload the video. Once they upload a video, it starts the detection process by 
 handling video upload on the local server using the POST method in the flask as a server-end point. Then, it will 
@@ -17,7 +17,7 @@ be used to process the testing using Faster R-CNN on VGG 16 network. After the t
 frame, it will convert those result frames into video and produces some graph results, such as ground truth classes, 
 predicted classes, mAP, Precision and Recall calculations.
 
-###live-streaming detection
+### live-streaming detection
 The live detection done by getting an image frame for every 3 seconds from backend end- point services (from flask 
 API via call HTTP API (using AJAX in browser). The reason for getting the image frames every 3 seconds is that there 
 is not enough CPU processor to capture frame for each second, as this is one of the improvements for further work. 
